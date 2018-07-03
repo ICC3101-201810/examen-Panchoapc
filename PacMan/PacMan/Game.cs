@@ -131,6 +131,7 @@ namespace PacMan
                 PinkGhosty = -PinkGhosty;
             }
             //Frutas
+            
             Random random = new Random();
             int FruitChoise = random.Next(2); //2 esta hardcodiado, cambiarlo en el caso que se agreguen frutas
             if (FruitChoise == 0)
@@ -205,6 +206,7 @@ namespace PacMan
                         else
                         {
                             Close();
+                            Application.Exit();
                         }
                     }
                 }
@@ -225,6 +227,11 @@ namespace PacMan
                     }
                 }
             }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

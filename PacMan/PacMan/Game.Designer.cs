@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label_UserName = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_greenF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Cherry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Pacman)).BeginInit();
@@ -184,6 +185,10 @@
             this.label_UserName.TabIndex = 11;
             this.label_UserName.Text = "name";
             // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -235,5 +240,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label_UserName;
+        private System.Windows.Forms.Timer timer2;
     }
 }
