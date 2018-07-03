@@ -12,7 +12,7 @@ namespace PacMan
 {
     public partial class Game : Form
     {
-
+        string sameUser;
         bool goUp;
         bool goDown;
         bool goLeft;
@@ -28,8 +28,8 @@ namespace PacMan
         public Game(string UserName)
         {
             InitializeComponent();
-            
-            //label_UserName.Text = UserName;
+            sameUser = UserName;
+            label_UserName.Text = UserName;
             label2.Visible = false;
         }
 
@@ -102,26 +102,41 @@ namespace PacMan
             pictureBox_pinkG.Left += PinkGhostx;
             pictureBox_pinkG.Top += PinkGhosty;
             //fantasma rojo
-            if (pictureBox_RedG.Bounds.IntersectsWith(pictureBox_RightWall.Bounds) ||
+            if (pictureBox_RedG.Left < 1 ||
+                pictureBox_RedG.Left + pictureBox_RedG.Width > ClientSize.Width - 2 ||
+                pictureBox_RedG.Bounds.IntersectsWith(pictureBox_RightWall.Bounds) ||
                 pictureBox_RedG.Bounds.IntersectsWith(pictureBox_LeftWall.Bounds))
             {
                 RedGhostx = -RedGhostx;
             }
-            else if (pictureBox_RedG.Bounds.IntersectsWith(pictureBox_TopWall.Bounds) ||
-                pictureBox_RedG.Bounds.IntersectsWith(picture_BottomWall.Bounds))
+            else if (pictureBox_RedG.Top < 1 ||
+                    pictureBox_RedG.Top + pictureBox_RedG.Height > ClientSize.Height - 2 ||
+                    pictureBox_RedG.Bounds.IntersectsWith(pictureBox_TopWall.Bounds) ||
+                    pictureBox_RedG.Bounds.IntersectsWith(picture_BottomWall.Bounds))
             {
                 RedGhosty = -RedGhosty;
             }
             //fantasma rosado
-            if (pictureBox_pinkG.Bounds.IntersectsWith(pictureBox_RightWall.Bounds) ||
+            if (pictureBox_pinkG.Left < 1 ||
+                pictureBox_pinkG.Left + pictureBox_RedG.Width > ClientSize.Width - 2 || 
+                pictureBox_pinkG.Bounds.IntersectsWith(pictureBox_RightWall.Bounds) ||
                 pictureBox_pinkG.Bounds.IntersectsWith(pictureBox_LeftWall.Bounds))
             {
                 PinkGhostx = -PinkGhostx;
             }
-            else if (pictureBox_pinkG.Bounds.IntersectsWith(pictureBox_TopWall.Bounds) ||
+            else if (pictureBox_pinkG.Top < 1 ||
+                    pictureBox_pinkG.Top + pictureBox_RedG.Height > ClientSize.Height - 2 || 
+                    pictureBox_pinkG.Bounds.IntersectsWith(pictureBox_TopWall.Bounds) ||
                     pictureBox_pinkG.Bounds.IntersectsWith(picture_BottomWall.Bounds))
             {
                 PinkGhosty = -PinkGhosty;
+            }
+            //Frutas
+            Random random = new Random();
+            int FruitChoise = random.Next(2); //2 esta hardcodiado, cambiarlo en el caso que se agreguen frutas
+            if (FruitChoise == 0)
+            {
+
             }
 
             foreach (Control control in this.Controls)
@@ -135,18 +150,36 @@ namespace PacMan
                         label2.Text = "GAME OVER";
                         label2.Visible = true;
                         timer1.Stop();
+                        var Choise = MessageBox.Show("Again?", "Choosing", MessageBoxButtons.YesNo);
+                        if (Choise == DialogResult.Yes)
+                        {
+                            Close();
+                            Game newGame = new Game(sameUser);
+                            newGame.Show();
+                        }
+                        else
+                        {
+                            Close();
+                        }
                     }
                 }
-                if (control is PictureBox && control.Tag == "fruit")
+                if (control is PictureBox && control.Tag == "cherry")
                 {
                     if (((PictureBox)control).Bounds.IntersectsWith(pictureBox_Pacman.Bounds))
                     {
                         this.Controls.Remove(control);
-                        score++;
+                        score += 10;
+                    }
+                }
+                if (control is PictureBox && control.Tag == "grape")
+                {
+                    if (((PictureBox)control).Bounds.IntersectsWith(pictureBox_Pacman.Bounds))
+                    {
+                        this.Controls.Remove(control);
+                        score += 15;
                     }
                 }
             }
         }
-
     }
 }

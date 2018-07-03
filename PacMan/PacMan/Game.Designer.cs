@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label_UserName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_greenF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Cherry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Pacman)).BeginInit();
@@ -61,7 +62,7 @@
             this.pictureBox_greenF.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_greenF.TabIndex = 8;
             this.pictureBox_greenF.TabStop = false;
-            this.pictureBox_greenF.Tag = "fruit";
+            this.pictureBox_greenF.Tag = "grape";
             // 
             // pictureBox_Cherry
             // 
@@ -72,7 +73,7 @@
             this.pictureBox_Cherry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_Cherry.TabIndex = 7;
             this.pictureBox_Cherry.TabStop = false;
-            this.pictureBox_Cherry.Tag = "fruit";
+            this.pictureBox_Cherry.Tag = "cherry";
             // 
             // pictureBox_Pacman
             // 
@@ -88,7 +89,7 @@
             // pictureBox_RedG
             // 
             this.pictureBox_RedG.Image = global::PacMan.Properties.Resources.red_left1;
-            this.pictureBox_RedG.Location = new System.Drawing.Point(189, 306);
+            this.pictureBox_RedG.Location = new System.Drawing.Point(210, 305);
             this.pictureBox_RedG.Name = "pictureBox_RedG";
             this.pictureBox_RedG.Size = new System.Drawing.Size(36, 38);
             this.pictureBox_RedG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -99,7 +100,7 @@
             // pictureBox_pinkG
             // 
             this.pictureBox_pinkG.Image = global::PacMan.Properties.Resources.pink_left1;
-            this.pictureBox_pinkG.Location = new System.Drawing.Point(370, 224);
+            this.pictureBox_pinkG.Location = new System.Drawing.Point(287, 186);
             this.pictureBox_pinkG.Name = "pictureBox_pinkG";
             this.pictureBox_pinkG.Size = new System.Drawing.Size(36, 38);
             this.pictureBox_pinkG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -110,9 +111,9 @@
             // picture_BottomWall
             // 
             this.picture_BottomWall.BackColor = System.Drawing.SystemColors.Desktop;
-            this.picture_BottomWall.Location = new System.Drawing.Point(42, 451);
+            this.picture_BottomWall.Location = new System.Drawing.Point(231, 397);
             this.picture_BottomWall.Name = "picture_BottomWall";
-            this.picture_BottomWall.Size = new System.Drawing.Size(526, 11);
+            this.picture_BottomWall.Size = new System.Drawing.Size(230, 15);
             this.picture_BottomWall.TabIndex = 3;
             this.picture_BottomWall.TabStop = false;
             this.picture_BottomWall.Tag = "wall";
@@ -120,9 +121,9 @@
             // pictureBox_TopWall
             // 
             this.pictureBox_TopWall.BackColor = System.Drawing.SystemColors.Desktop;
-            this.pictureBox_TopWall.Location = new System.Drawing.Point(41, 67);
+            this.pictureBox_TopWall.Location = new System.Drawing.Point(144, 112);
             this.pictureBox_TopWall.Name = "pictureBox_TopWall";
-            this.pictureBox_TopWall.Size = new System.Drawing.Size(527, 10);
+            this.pictureBox_TopWall.Size = new System.Drawing.Size(129, 11);
             this.pictureBox_TopWall.TabIndex = 2;
             this.pictureBox_TopWall.TabStop = false;
             this.pictureBox_TopWall.Tag = "wall";
@@ -130,9 +131,9 @@
             // pictureBox_RightWall
             // 
             this.pictureBox_RightWall.BackColor = System.Drawing.SystemColors.Desktop;
-            this.pictureBox_RightWall.Location = new System.Drawing.Point(556, 67);
+            this.pictureBox_RightWall.Location = new System.Drawing.Point(493, 141);
             this.pictureBox_RightWall.Name = "pictureBox_RightWall";
-            this.pictureBox_RightWall.Size = new System.Drawing.Size(12, 395);
+            this.pictureBox_RightWall.Size = new System.Drawing.Size(17, 146);
             this.pictureBox_RightWall.TabIndex = 1;
             this.pictureBox_RightWall.TabStop = false;
             this.pictureBox_RightWall.Tag = "wall";
@@ -140,9 +141,9 @@
             // pictureBox_LeftWall
             // 
             this.pictureBox_LeftWall.BackColor = System.Drawing.SystemColors.Desktop;
-            this.pictureBox_LeftWall.Location = new System.Drawing.Point(39, 67);
+            this.pictureBox_LeftWall.Location = new System.Drawing.Point(88, 231);
             this.pictureBox_LeftWall.Name = "pictureBox_LeftWall";
-            this.pictureBox_LeftWall.Size = new System.Drawing.Size(12, 395);
+            this.pictureBox_LeftWall.Size = new System.Drawing.Size(18, 181);
             this.pictureBox_LeftWall.TabIndex = 0;
             this.pictureBox_LeftWall.TabStop = false;
             this.pictureBox_LeftWall.Tag = "wall";
@@ -151,7 +152,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 22);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 29);
             this.label1.TabIndex = 9;
@@ -173,11 +174,22 @@
             this.timer1.Interval = 20;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label_UserName
+            // 
+            this.label_UserName.AutoSize = true;
+            this.label_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_UserName.Location = new System.Drawing.Point(422, 9);
+            this.label_UserName.Name = "label_UserName";
+            this.label_UserName.Size = new System.Drawing.Size(77, 29);
+            this.label_UserName.TabIndex = 11;
+            this.label_UserName.Text = "name";
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(607, 523);
+            this.Controls.Add(this.label_UserName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox_greenF);
@@ -222,5 +234,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label_UserName;
     }
 }
