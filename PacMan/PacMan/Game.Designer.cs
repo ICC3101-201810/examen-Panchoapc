@@ -67,7 +67,7 @@
             // pictureBox_Cherry
             // 
             this.pictureBox_Cherry.Image = global::PacMan.Properties.Resources.cherry;
-            this.pictureBox_Cherry.Location = new System.Drawing.Point(131, 141);
+            this.pictureBox_Cherry.Location = new System.Drawing.Point(157, 184);
             this.pictureBox_Cherry.Name = "pictureBox_Cherry";
             this.pictureBox_Cherry.Size = new System.Drawing.Size(40, 40);
             this.pictureBox_Cherry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

@@ -76,7 +76,6 @@ namespace PacMan
                 goDown = false;
             }
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Text = "Score: " + score;
@@ -136,7 +135,53 @@ namespace PacMan
             int FruitChoise = random.Next(2); //2 esta hardcodiado, cambiarlo en el caso que se agreguen frutas
             if (FruitChoise == 0)
             {
-
+                int rdmX = random.Next(625);
+                int rdmY = random.Next(570);
+                var picture = new PictureBox
+                {
+                    Name = "pictureBox_cherry",
+                    Size = new Size(40, 40),
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Tag = "cherry",
+                    Location = new Point(rdmX, rdmY),
+                    Image = Properties.Resources.cherry,
+                };
+                foreach (Control control in this.Controls)
+                {
+                    if (control is PictureBox && ((PictureBox)control).Bounds.IntersectsWith(picture.Bounds))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        this.Controls.Add(picture);
+                    }
+                }
+            }
+            else if (FruitChoise == 1)
+            {
+                int rdmX = random.Next(625);
+                int rdmY = random.Next(570);
+                var picture = new PictureBox
+                {
+                    Name = "pictureBox_grape",
+                    Size = new Size(40, 40),
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Tag = "cherry",
+                    Location = new Point(rdmX, rdmY),
+                    Image = Properties.Resources.tile114,
+                };
+                foreach (Control control in this.Controls)
+                {
+                    if (control is PictureBox && ((PictureBox)control).Bounds.IntersectsWith(picture.Bounds))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        this.Controls.Add(picture);
+                    }
+                }
             }
 
             foreach (Control control in this.Controls)
